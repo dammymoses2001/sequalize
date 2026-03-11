@@ -11,7 +11,7 @@ interface UserAttributes {
 }
 
 // Optional attributes for creation
-interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
+type UserCreationAttributes = Optional<UserAttributes, "id">;
 
 // Extend Sequelize Model
 class User
@@ -31,7 +31,7 @@ class User
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },

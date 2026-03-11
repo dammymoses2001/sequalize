@@ -25,6 +25,11 @@ User.init({
         allowNull: false,
         unique: true,
     },
+    isVerified: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: false,
+    },
 }, {
     sequelize: db_1.default,
     modelName: "User",

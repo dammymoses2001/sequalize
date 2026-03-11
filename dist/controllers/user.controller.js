@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUser = void 0;
+exports.getAllUsers = exports.createUser = void 0;
 const user_1 = __importDefault(require("../sequelize/models/user"));
 const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -20,8 +20,18 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(201).json(user);
     }
     catch (error) {
-        res.status(500).json({ message: 'Error creating user', error });
+        res.status(500).json({ message: "Error creating user", error });
     }
 });
 exports.createUser = createUser;
+const getAllUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield user_1.default.findAll();
+        res.status(201).json(user);
+    }
+    catch (error) {
+        res.status(500).json({ message: "Error creating user", error });
+    }
+});
+exports.getAllUsers = getAllUsers;
 //# sourceMappingURL=user.controller.js.map
